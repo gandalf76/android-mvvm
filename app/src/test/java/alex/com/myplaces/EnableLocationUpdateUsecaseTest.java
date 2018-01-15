@@ -15,23 +15,14 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import alex.com.myplaces.data.LocationDataRepository;
-import alex.com.myplaces.data.PlacesDataRepository;
 import alex.com.myplaces.domain.model.Location;
-import alex.com.myplaces.domain.model.Place;
 import alex.com.myplaces.domain.usecases.EnableLocationUpdateUseCase;
-import alex.com.myplaces.domain.usecases.GetPlacesUseCase;
-import alex.com.myplaces.domain.usecases.UseCase;
 
-import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.verify;
 
 @RunWith(PowerMockRunner.class)

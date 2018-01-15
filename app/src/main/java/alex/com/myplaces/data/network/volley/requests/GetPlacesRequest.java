@@ -12,7 +12,7 @@ import alex.com.myplaces.data.network.volley.ApiErrorListener;
 
 public class GetPlacesRequest extends AbstractRequest<ResultRequestObject> {
 
-    public static final String TAG = "get_places_request";
+    private static final String TAG = "get_places_request";
 
     private static final String PLACES_PATH = "places/v1/discover/around";
 

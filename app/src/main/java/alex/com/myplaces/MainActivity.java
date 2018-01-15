@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Location lastGoodLocation;
 
-    private PlacesAdapter placesAdapter;
-
     private static final String[] REQUIRED_SDK_PERMISSIONS = new String[] {
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.binding.rvPlaces.setLayoutManager(new LinearLayoutManager(this));
         this.binding.rvPlaces.setHasFixedSize(true);
-        this.placesAdapter = new PlacesAdapter();
+        PlacesAdapter placesAdapter = new PlacesAdapter();
         this.binding.rvPlaces.setAdapter(placesAdapter);
     }
 

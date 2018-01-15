@@ -1,19 +1,15 @@
 package alex.com.myplaces.data;
 
 
-import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.VisibleForTesting;
 
 import alex.com.myplaces.data.source.LocationDataSourceManager;
-import alex.com.myplaces.domain.model.Location;
 
 public class LocationDataRepository implements LocationDataSource {
 
     private static LocationDataRepository instance;
 
     private LocationDataSourceManager locationDataSourceManager;
-
-    private MutableLiveData<Location> locationMutableLiveData = new MutableLiveData<>();
 
     private LocationDataRepository(LocationDataSourceManager locationDataSourceManager) {
         this.locationDataSourceManager = locationDataSourceManager;

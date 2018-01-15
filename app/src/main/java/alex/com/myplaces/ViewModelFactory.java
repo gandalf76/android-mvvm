@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import alex.com.myplaces.data.LocationDataRepository;
-import alex.com.myplaces.data.LocationDataSource;
 import alex.com.myplaces.data.PlacesDataRepository;
 import alex.com.myplaces.data.network.volley.VolleyNetworkService;
 import alex.com.myplaces.data.source.LocationDataSourceManager;

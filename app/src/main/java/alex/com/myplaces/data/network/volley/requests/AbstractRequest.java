@@ -91,11 +91,6 @@ public abstract class AbstractRequest <ResponseType> extends Request<ResponseTyp
     }
 
     @Override
-    public Map<String, String> getHeaders() throws AuthFailureError {
-        return super.getHeaders();
-    }
-
-    @Override
     protected void deliverResponse(ResponseType response) {
         Log.d(TAG, "Delivery API response " + response);
         this.resultListener.onResponse(response);
