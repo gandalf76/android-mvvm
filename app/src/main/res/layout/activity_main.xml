@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewmodel"
+            type="alex.com.myplaces.MainViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="alex.com.myplaces.MainActivity">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <fragment
+                class="com.here.android.mpa.mapping.MapFragment"
+                android:id="@+id/mapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tvUpdatingLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/txt_updating_location"
+                android:visibility="@{viewmodel.showLoader ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:visibility="@{viewmodel.showLoader ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/tvUpdatingLocation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <TextView
+                android:id="@+id/tvPlacesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottomsheet_header_height"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:text="@string/txt_places_nearby"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+               <android.support.v7.widget.RecyclerView
+                   android:id="@+id/rvPlaces"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:items="@{viewmodel.places}"/>
+
+                <ProgressBar
+                    android:id="@+id/placeProgressbar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="@{viewmodel.showLoaderPlaces ? View.VISIBLE : View.GONE}"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
